@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel With You</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #49365F;
+            background-color: #FAF8FD;
+        }
+
+        header {
+            background-color: #FFFFFF;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 12px rgba(73, 54, 95, 0.08);
+        }
+
+        .logo {
+            color: #9B7EBD;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #49365F;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #9B7EBD;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .hero {
+            padding: 90px 8%;
+            text-align: center;
+            background: linear-gradient(135deg, #EDE4F7, #FAF8FD);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 18px;
+            color: #49365F;
+        }
+
+        .hero span {
+            color: #9B7EBD;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1rem;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 26px;
+            background-color: #9B7EBD;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #80639F;
+        }
+
+        section,
+        article {
+            padding: 45px 8%;
+        }
+
+        h2 {
+            color: #49365F;
+            margin-bottom: 18px;
+            font-size: 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .feature-card,
+        aside {
+            background-color: #FFFFFF;
+            padding: 22px;
+            border-radius: 15px;
+            box-shadow: 0 4px 18px rgba(73, 54, 95, 0.08);
+        }
+
+        .feature-card h3 {
+            color: #9B7EBD;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 550px;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            border: 1px solid #DCCDEB;
+            text-align: left;
+        }
+
+        th {
+            background-color: #EDE4F7;
+            color: #49365F;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FCFAFF;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        aside {
+            background-color: #F0E8F8;
+        }
+
+        aside h2 {
+            color: #80639F;
+        }
+
+        footer {
+            background-color: #49365F;
+            color: white;
+            padding: 30px 8%;
+            text-align: center;
+        }
+
+        footer a {
+            color: #EDE4F7;
+            margin: 0 8px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 750px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section,
+            article {
+                padding: 30px 6%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Travel With You 💜✈️</div>
+
+        <nav aria-label="Ana menü">
+            <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#ozellikler">Özellikler</a>
+            <a href="#destinasyonlar">Destinasyonlar</a>
+            <a href="#iletisim">İletişim</a>
+        </nav>
+    </header>
+
+    <main>
+        <article id="anasayfa" class="hero">
+            <h1>
+                Hayalindeki Rotayı
+                <span>Travel With You</span> ile Keşfet!
+            </h1>
+
+            <p>
+                Dünyanın dört bir yanındaki destinasyonları keşfet,
+                seyahat planını kolayca oluştur ve unutulmaz
+                anılar biriktir.
+            </p>
+
+            <a class="button" href="#ozellikler">
+                Uygulamayı Keşfet
+            </a>
+        </article>
+
+        <section id="ozellikler">
+            <h2>TravelWithYou Özellikleri</h2>
+
+            <div class="features">
+
+                <div class="feature-card">
+                    <h3>✈ Uçak ve Otel</h3>
+                    <p>
+                        Uçak bileti ve otel seçeneklerini
+                        tek platformdan incele.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🗓 Seyahat Planı</h3>
+                    <p>
+                        Rotanı oluştur ve zamanını
+                        verimli şekilde planla.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🗺 Çevrimdışı Harita</h3>
+                    <p>
+                        İnternet bağlantısı olmadan da
+                        yolunu bul.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>★ Kişisel Öneriler</h3>
+                    <p>
+                        İlgi alanlarına uygun yeni
+                        destinasyonlar keşfet.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+        <div class="content-grid">
+
+            <section id="destinasyonlar">
+                <h2>Popüler Seyehat Noktaları</h2>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Destinasyon</th>
+                                <th>Ülke</th>
+                                <th>Ortalama Maliyet</th>
+                                <th>En Uygun Zaman</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Santorini</td>
+                                <td>Yunanistan</td>
+                                <td>12.000 TL</td>
+                                <td>Mayıs - Ekim</td>
+                            </tr>
+
+                            <tr>
+                                <td>Bali</td>
+                                <td>Endonezya</td>
+                                <td>15.000 TL</td>
+                                <td>Nisan - Ekim</td>
+                            </tr>
+
+                            <tr>
+                                <td>Kapadokya</td>
+                                <td>Türkiye</td>
+                                <td>8.000 TL</td>
+                                <td>Nisan - Haziran</td>
+                            </tr>
+
+                            <tr>
+                                <td>Paris</td>
+                                <td>Fransa</td>
+                                <td>14.000 TL</td>
+                                <td>Nisan - Ekim</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <aside>
+                <h2>Seyahat İpucu</h2>
+
+                <p>
+                    Seyahatten önce gideceğin bölgenin
+                    hava durumunu kontrol et.
+                </p>
+
+                <br>
+
+                <h3>Avantajlarımız</h3>
+
+                <ul>
+                    <li>Kolay seyahat planlama</li>
+                    <li>Kişiselleştirilmiş öneriler</li>
+                    <li>Güvenli kullanım</li>
+                    <li>Kullanıcı dostu arayüz</li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+    <footer id="iletisim">
+        <p>© 2026 Travel With You | Tüm hakları saklıdır.</p>
+
+        <p>
+            <a href="#instagram">İnstagram</a> |
+            <a href="#twitter">Twitter</a> |
+            <a href="#facebook">Facebook</a>
+        </p>
+    </footer>
+
+</body>
+</html>
