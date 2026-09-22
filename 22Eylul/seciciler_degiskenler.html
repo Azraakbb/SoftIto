@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Seçici Değişkenler</title>
+    <style>
+        /*GLOBAL CSS DEĞİŞKENLERİ*/
+        :root {
+            --brand-primary: #4f46e5;
+            --brand-accent : #86b6d4;
+            --bg-surface : #ffffff;
+            --text-main: #0f172a;
+            --radius-md: 12px;
+        }
+        /*KARANLIK MOD DESTEKLİ CSS DEĞİŞKENLERİ*/
+        @media (prefers-color-scheme: dark){
+            :root {
+                --bg-surface : #0f172a;
+                --text-main: #fbfafc;
+            }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans';
+            background-color: grey;
+            color: var(--text-main);
+            padding: 24px;
+        }
+
+        button {
+            background-color: grey;
+            color: white;
+            padding: 12px 24px;
+            border : none;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-action:active {
+            transform: translateY(0);
+        }
+
+        
+        .btn-action {
+            background-color: var(--brand-primary);
+        }
+
+        
+        button.btn-action {
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+        }
+
+        
+        #submit-btn {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+        }
+    </style>
+</head>
+<body>
+    <button>CSS Değişkenler</button>
+    <button id="submit-btn" class="btn-action">işlemi onayla</button>
+</body>
+</html>

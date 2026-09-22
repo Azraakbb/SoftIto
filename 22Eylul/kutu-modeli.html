@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*ALTIN KURAL*/
+        *,
+        *:before,
+        *::after {
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+
+        body { 
+            font-family: 'times new roman', sans-serif;
+            padding:0;
+            background-color: #f0f0f0;
+        }
+        .box-container {
+            width: 100%;
+            max-width: 400px;
+            margin:0 auto;
+        }
+
+        .broken-box {
+            box-sizing: content-box;
+            width: 100%;
+            padding: 24px;
+            border: 6px solid #9e5454;
+            background-color: #fff;
+            margin-bottom: 29px;
+        }
+
+        .fixed-box {
+            box-sizing:border-box;
+            width: 100%;
+            padding: 24px;
+            border: 6px solid #81549e;
+            background-color: #fff;
+            border-radius: 12px;
+        }
+
+        .truncated-box {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            max-width: 250px;
+            padding: 24px;
+            border: 6px solid #ca80b2;
+            border-radius: 6px;
+            background-color: #fff;
+            margin-top:12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-container">
+
+        <h3>content-box (taşma yapan eleman)</h3>
+
+        <div class="broken-box">
+            Ekrandan dışarı taşan kutu!
+        </div>
+
+        <h3>border-box (kusursuz kutumuz)</h3>
+
+        <div class="fixed-box">
+            Tam ekran sınırında kalan mobil dostu kutumuz
+
+            <div
+                class="truncate-text"
+                title="Bu çok uzun bir İban veya sipariş numarası veya extra bir metin olabilir">
+                
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis iure modi placeat, in, aperiam
+                eveniet atque officia quis non temporibus ipsa vel! Assumenda aut ad velit illum atque totam
+                asperiores?
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
