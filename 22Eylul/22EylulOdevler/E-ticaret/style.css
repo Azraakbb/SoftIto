@@ -214,21 +214,23 @@ main {
 
 /* KARGO */
 .shipping-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    position: absolute;
 
-    margin-bottom: 22px;
-    padding: 11px 14px;
+    top: 15px;
+    right: 20px;
+
+    z-index: 5;
+
+    padding: 8px 12px;
 
     background-color: #f8edf4;
+    color: #51385a;
 
-    border: 1px dashed #d8b8cd;
+    border: 1px dashed #c9a9c3;
+    border-radius: 20px;
 
-    border-radius: 10px;
-
-    font-size: 13px;
-    color: #655464;
+    font-size: 11px;
+    font-weight: bold;
 }
 
 .shipping-badge span {
@@ -251,7 +253,7 @@ main {
 .size-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    gap: 8px;
 }
 
 .size-chip {
