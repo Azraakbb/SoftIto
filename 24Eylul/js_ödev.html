@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sarjHesapla(
+        mevcutYuzde,
+        hedefYuzde,
+        bataryaKW,
+        istasyonKW,
+        yuzdeBasiEnerji,
+        tarife
+        ) {
+            const yuzdeFark = hedefYuzde - mevcutYuzde;
+
+            const enerji = yuzdeFark * yuzdeBasiEnerji;
+
+            const gercekSarjGucu = Math.min(bataryaKW, istasyonKW);
+
+            const dakika = Math.round((enerji / gercekSarjGucu) * 60);
+
+            // Gece / gündüz tarifesi
+            let birimFiyat;
+
+            if (tarife === "gece") {
+                birimFiyat = 3;
+            } else if (tarife === "gunduz") {
+                birimFiyat = 5;
+            }
+
+            const maliyet = enerji * birimFiyat;
+
+            return {
+                dakika: dakika,
+                maliyet: maliyet
+            };
+        }
+    </script>
+</body>
+</html>

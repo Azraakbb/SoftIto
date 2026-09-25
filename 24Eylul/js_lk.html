@@ -149,27 +149,23 @@
 
         //meydanOkuma2
         // 1. Şarj süresini hesaplayan fonksiyonumuz
-        function sarjSuresiHesapla(mevcutYuzde, hedefYuzde, bataryaKw, istasyonKw) {
-            
-        if (mevcutYuzde >= hedefYuzde) {
-            return "Zaten hedef yüzdeye ulaştınız veya geçtiniz! Şarj etmeye gerek yok.";
+        Mevcut = %20
+        Hedef = %80
+        //%1 = 1000 kWh
+        Araç = 30
+        İstasyon = 100
+
+        function sarjSuresi(mevcutYuzde, hedefYuzde, bataryaKW, istasyonKW) {
+            const yuzdeFark = hedefYuzde - mevcutYuzde;
+
+            const enerji = yuzdeFark * 1000;
+
+            const gercekSarjGucu = Math.min(bataryaKW, istasyonKW);
+
+            const dakika = (enerji / gercekSarjGucu) * 60;
+
+            return dakika;
         }
-        
-        
-        const yuzdeFarki = hedefYuzde - mevcutYuzde;
-        const gerekliEnerji = (bataryaKw * yuzdeFarki) / 100;
-        const sureSaat = gerekliEnerji / istasyonKw;
-        const sureDakika = sureSaat * 60;}
-
-        const mevcutYuzde = Number(prompt("Mevcut batarya yüzdesi (%):"));
-        const hedefYuzde = Number(prompt("Hedef batarya yüzdesi (%):"));
-        const bataryaKw = Number(prompt("Batarya kapasitesi (kWh, örn: 60):"));
-        const istasyonKw = Number(prompt("Şarj istasyonu gücü (kW, örn: 50):"));
-
-        const toplamDakika = sarjSuresiHesapla(mevcutYuzde, hedefYuzde, bataryaKw, istasyonKw);
-
-        alert(`Tebrikler! Şarj işlemi yaklaşık ${toplamDakika} dakika sürecektir.`);
-        console.log(`Tahmini Şarj Süresi: ${toplamDakika} dakika`);
     </script>
 </body>
 </html>
