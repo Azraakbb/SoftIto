@@ -36,7 +36,7 @@
         }
         /*bem blokları*/
         .product-item{
-            width: 100½;
+            width: 100%;
             max-width: 380px;
             background: var(--surface);
             border: 1px solid var(--line);
@@ -132,6 +132,12 @@
         .action-btn--primary:hover{
             background-color: var(--terrecotta);
         }
+
+        .product-item__visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -140,6 +146,7 @@
         <span class="product-item__tag product-item__tag--highlight">
             EL yapımı
         </span>
+        <img src="koltuk.jpg" alt="Masif koltuk">
     </div>
     <div class="product-item__body">
         <h3 class="product-item__title">Masif koltuk</h3>

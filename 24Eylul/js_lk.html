@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlk Ders</title>
+</head>
+<body>
+    
+
+    <script>
+        /*//var felaketi süslü parantez dinlemez dışarıya sızar
+        if(true){
+            var tehlikeliSayi=999;
+        }
+        console.log(tehlikeliSayi);
+
+        //let ve const kalknanı:süslü parantez bir oda çıkıs yasak çıkmaz
+        if(true){
+            let guvenliSayi=42;
+            const pi=3.1224;
+            console.log(guvenliSayi,pi);
+        }
+        //console.log(guvenliSayi)
+
+        //const 
+        const api_url="https://www.kodusta.com/v1";
+        console.log(api_url);
+
+
+        const arac={marka:"togg",model:"t10x"};
+        console.log(arac);
+        arac={baska:"obje"};
+
+
+
+
+
+        //Veri Tipleri ve tip dönüşümü
+        const isim="Selahaddin";
+        const bataryaKapasitw=88.5;
+        const sarjTamamlandı=false;
+        let sonrakiRandevu;
+        const servisNotu=null;
+        const büyükSayi=7584894n;
+        const gizliAnahtar=Symbol("id");
+
+        console.log(typeof isim);
+        console.log(typeof bataryaKapasite);
+
+                //Otomatik Tip Çevrimi
+        console. log("5"+2); // + işareti metin birleştirme
+        yapar
+        console. log("5"-2); // - işareti stringi zorla sayıya
+        çevirir
+        console. log("5"*"4");// çarpma işlemi sayıya çevirir
+        console. log("bes"*2); // NaN no
+
+        console.log(typeof NaN)
+        console.log(NaN==NaN);
+        
+        //manuel tip dönüştürme(pro yol)
+        const stringFiyat="1439.4";
+        const sayiFiyat=Number(stringFiyat);
+        const pixelDegeri=parseInt("48px",18);
+        const metinSayi=String(2026);
+
+        console.log(stringFiyat);
+        console.log(sayiFiyat);
+        console.log(pixelDegeri);
+        console.log(metinSayi);
+        
+
+
+       //Katı eşitlik
+        //=== bu hem tip hem de değer kontrolü yapar
+        console.log(5=="5")//true ASLA KULLANMA ZORLA TİP DÖNÜŞÜMÜ YAPIYOR 
+        console.log(5==="5")//false
+        console.log(0==false)//true ama tehlikeliii
+        console.log(null==undefined)//true
+        console.log(null===undefined)//false
+       
+
+        //template literals
+        const kullanici="esra ergün";
+        const bakiye=1000;
+        const harcama=10000;
+        const eskiMesaj="sayın"+kullanici+",kalan bakiyeniz"+(bakiye-harcama);
+        console.log(eskiMesaj)
+
+        const yeniMesaj='sayın ${kullnici}, bugünkü kalan bakiyeniz ${bakiye-harcama},
+        durum:${(bakiye-harcama)>1000?"güvenli bakiye":"kritik bakiye"}';
+    
+        const bataryaSev=14;
+        const istasyonUygunmu=false;
+        const bakiyeTl=400;
+        const minimumGiris=220;
+
+        if(!istasyonUygunmu){
+            console.log("MEŞGUL")
+        }
+        else if(bakiyeTl<minimumGiris){
+            console.log("kritik seviye ultra hızlı moda ageçiyor")
+        }
+        else{
+            console.log("standart şarj")
+        }
+
+        //false olan 6 değer  js da
+        //false,0,Null,"",NaN
+
+
+        //klasik fonk 
+        function toplaKlasik(saayi1,sayi2){
+            return sayi2+saayi1;
+        }
+ 
+        //modern funct
+        const toplaModern = (sayi2,saayi1) => {
+            return sayi2+saayi1
+        }
+        //tek satır
+        const toplaKisa = (sayi2,saayi1) => saayi1+sayi2;
+
+        //tek parametre
+        const karesiniAl = sayi => sayi*sayi
+
+        const profilUret=(ad,rol) => ({
+            ad:ad,
+            rol:rol,
+            kayitTarihi:2026
+        })
+        console.log(toplaModern(15,34))
+        console.log(toplaKisa(15,32))
+        console.log(karesiniAl(5))
+        console.log(profilUret("Azra","Mühendis"))
+
+        //indirimli sepet tutarı hesaplayıcı
+        const sepetTutari=Number(prompt("sepet tutarı"));
+        const indirimTutari=Number(prompt("indirim oranı:"));
+
+        function sepetHesapla(tutar,oran){
+            const indirim = (tutar*oran)/100
+            const sonuc = tutar - indirim;
+            console.log(sonuc) 
+        }*/
+
+
+
+        //meydanOkuma2
+        // 1. Şarj süresini hesaplayan fonksiyonumuz
+        function sarjSuresiHesapla(mevcutYuzde, hedefYuzde, bataryaKw, istasyonKw) {
+            
+        if (mevcutYuzde >= hedefYuzde) {
+            return "Zaten hedef yüzdeye ulaştınız veya geçtiniz! Şarj etmeye gerek yok.";
+        }
+        
+        
+        const yuzdeFarki = hedefYuzde - mevcutYuzde;
+        const gerekliEnerji = (bataryaKw * yuzdeFarki) / 100;
+        const sureSaat = gerekliEnerji / istasyonKw;
+        const sureDakika = sureSaat * 60;}
+
+        const mevcutYuzde = Number(prompt("Mevcut batarya yüzdesi (%):"));
+        const hedefYuzde = Number(prompt("Hedef batarya yüzdesi (%):"));
+        const bataryaKw = Number(prompt("Batarya kapasitesi (kWh, örn: 60):"));
+        const istasyonKw = Number(prompt("Şarj istasyonu gücü (kW, örn: 50):"));
+
+        const toplamDakika = sarjSuresiHesapla(mevcutYuzde, hedefYuzde, bataryaKw, istasyonKw);
+
+        alert(`Tebrikler! Şarj işlemi yaklaşık ${toplamDakika} dakika sürecektir.`);
+        console.log(`Tahmini Şarj Süresi: ${toplamDakika} dakika`);
+    </script>
+</body>
+</html>
