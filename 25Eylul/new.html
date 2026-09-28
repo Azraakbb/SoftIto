@@ -1,11 +1,11 @@
-<!doctype html>
-<html lang="en">
+<!doctype html> <!-- HTML5 dokümanı olduğunu belirtir -->
+<html lang="en"><!-- HTML sayfasını başlatır -->
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" /> <!-- Türkçe karakterleri destekler -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Mobil uyumu sağlar -->
     <title>Sipariş & Gelir Kokpit Dashboard</title>
     <style>
-      :root {
+      :root { /* CSS değişkenlerini tanımlar */
         --bg: #f8f7f4;
         --card: #ffffff;
         --border: #e6e5df;
@@ -17,52 +17,52 @@
         --font-mono: "JetBrains Mono", monospace;
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+      * {/* Tüm HTML elemanlarını seçer */
+        box-sizing: border-box;/* Padding ve border genişliğe dahil olur */
+        margin: 0;/* Varsayılan dış boşluğu kaldırır */
+        padding: 0; /* Varsayılan iç boşluğu kaldırır */
       }
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--font-main);
+      body {/* Sayfanın genel ayarları */
+        background: var(--bg);/* Arka plan rengini verir */
+        color: var(--text);/* Yazı rengini belirler */
+        font-family: var(--font-main);/* Yazı tipini belirler */
         padding: 36px 16px;
-        line-height: 1.5;
+        line-height: 1.5; /* Satır yüksekliği */
       }
-      .kokpit {
-        max-width: 960px;
+      .kokpit {/* Ana dashboard alanı */
+        max-width: 960px; /* Maksimum genişlik */
         margin: 0 auto;
       }
 
       /* Header & KPI */
-      .header {
-        margin-bottom: 24px;
-        padding-bottom: 16px;
-        border-bottom: 1px solid var(--border);
+      .header {/* Başlık alanı */
+        margin-bottom: 24px;/* Alt boşluk */
+        padding-bottom: 16px; /* Alt iç boşluk */
+        border-bottom: 1px solid var(--border); /* Alt çizgi */
       }
-      .header__tag {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
+      .header__tag {/* Küçük başlık yazısı */
+        font-size: 11px;/* Yazı boyutu */
+        text-transform: uppercase;/* Harfleri büyütür */
+        letter-spacing: 0.12em;/* Harfler arası boşluk */
         color: var(--clay);
-        font-weight: 700;
+        font-weight: 700;/* Kalın yazı */
       }
-      .header__title {
+      .header__title {/* Ana başlık */
         font-size: 26px;
         font-weight: 700;
         margin-top: 2px;
       }
 
       .kpi-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
+        display: grid;/* Grid yapısını açar */
+        grid-template-columns: repeat(3, 1fr);/* 3 eşit sütun oluşturur */
+        gap: 14px; /* Kartlar arası boşluk */
         margin-bottom: 24px;
       }
       .kpi-card {
         background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 8px;
+        border: 1px solid var(--border);/* Kenarlık */
+        border-radius: 8px;/* Köşeleri yuvarlar */
         padding: 14px 18px;
       }
       .kpi-card span {
@@ -78,15 +78,15 @@
       }
 
       /* Layout */
-      .layout {
+      .layout {/* Form ve liste alanı */
         display: grid;
         grid-template-columns: 320px 1fr;
         gap: 24px;
       }
-      @media (max-width: 768px) {
+      @media (max-width: 768px) {/* Ekran 768px'den küçükse */
         .layout,
         .kpi-grid {
-          grid-template-columns: 1fr;
+          grid-template-columns: 1fr;/* Tek sütuna geçer */
         }
       }
 
@@ -108,14 +108,14 @@
       .field {
         margin-bottom: 12px;
       }
-      .field label {
-        display: block;
+      .field label {/* Form etiketleri */
+        display: block; /* Alt satıra geçirir */
         font-size: 12px;
         font-weight: 600;
         margin-bottom: 4px;
       }
       .field input,
-      .field select {
+      .field select {/* Input ve select */
         width: 100%;
         padding: 8px 10px;
         font-size: 13px;
@@ -125,8 +125,8 @@
         border-radius: 6px;
       }
       .field input:focus,
-      .field select:focus {
-        outline: none;
+      .field select:focus {/* Input seçildiğinde */
+        outline: none; /* Varsayılan çizgiyi kaldırır */
         border-color: var(--clay);
         background: #fff;
       }
@@ -140,26 +140,26 @@
         font-size: 13px;
         font-weight: 600;
         border-radius: 6px;
-        cursor: pointer;
+        cursor: pointer;/* Fare imlecini değiştirir */
         margin-top: 6px;
       }
-      .btn-submit:hover {
-        background: var(--clay-hover);
+      .btn-submit:hover {/* Butonun üzerine gelince */
+        background: var(--clay-hover);/* Rengi değiştirir */ 
       }
 
       /* Liste & Filtre */
-      .filter-bar {
-        display: flex;
+      .filter-bar {/* Filtre alanı */
+        display: flex; /* Elemanları yan yana dizer */
         gap: 10px;
         margin-bottom: 14px;
       }
-      .order-list {
+      .order-list {/* Sipariş listesi */
         display: flex;
-        flex-direction: column;
+        flex-direction: column;/* Elemanları alt alta dizer */
         gap: 10px;
       }
 
-      .order-item {
+      .order-item {/* Tek sipariş kutusu */
         background: var(--bg);
         border: 1px solid var(--border);
         border-radius: 6px;
@@ -168,21 +168,21 @@
         justify-content: space-between;
         align-items: center;
       }
-      .order-item h5 {
+      .order-item h5 {/* Ürün adı */
         font-size: 13px;
         font-weight: 600;
       }
-      .order-item p {
+      .order-item p {/* Ürün fiyatı */
         font-size: 12px;
         color: var(--muted);
       }
 
-      .meta-box {
+      .meta-box {/* Kategori ve sil alanı */
         display: flex;
-        align-items: center;
+        align-items: center;/* Dikeyde ortalar */
         gap: 10px;
       }
-      .badge {
+      .badge {/* Kategori etiketi */
         font-size: 11px;
         padding: 2px 7px;
         border-radius: 4px;
@@ -191,21 +191,21 @@
         color: #92400e;
         font-family: var(--font-mono);
       }
-      .badge--mobilya {
+      .badge--mobilya {/* Mobilya etiketi */
         background: #e0e7ff;
         color: #3730a3;
       }
-      .badge--aydinlatma {
+      .badge--aydinlatma {/* Aydınlatma etiketi */
         background: #fef3c7;
         color: #b45309;
       }
-      .badge--seramik {
+      .badge--seramik {/* Seramik etiketi */
         background: #d1fae5;
         color: #065f46;
       }
 
-      .btn-del {
-        background: transparent;
+      .btn-del {/* Sil butonu */
+        background: transparent;/* Arka plan yok */
         border: 1px solid var(--border);
         color: var(--muted);
         font-size: 11px;
@@ -213,7 +213,7 @@
         border-radius: 4px;
         cursor: pointer;
       }
-      .btn-del:hover {
+      .btn-del:hover {/* Sil butonuna gelince */
         background: #ef4444;
         color: #fff;
         border-color: #ef4444;
@@ -221,45 +221,45 @@
     </style>
   </head>
   <body>
-    <div class="kokpit">
-      <header class="header">
-        <span class="header__tag"> Sipariş Takip </span>
-        <h1 class="header_title">Sipariş Yönetim Kokpiti</h1>
+    <div class="kokpit"><!-- Dashboard'un ana kapsayıcısı -->
+      <header class="header"><!-- Başlık bölümü -->
+        <span class="header__tag"> Sipariş Takip </span><!-- Küçük başlık -->
+        <h1 class="header_title">Sipariş Yönetim Kokpiti</h1><!-- Ana başlık -->
       </header>
-      <section class="kpi-grid">
-        <div class="kpi-card">
-          <span>Kayıtlı Sipariş</span>
-          <h3 id="kpiCount">0</h3>
+      <section class="kpi-grid"><!-- KPI kartlarının bulunduğu bölüm -->
+        <div class="kpi-card">> <!-- Sipariş sayısı kartı -->
+          <span>Kayıtlı Sipariş</span><!-- Kart açıklaması -->
+          <h3 id="kpiCount">0</h3><!-- Sipariş sayısı -->
         </div>
-        <div class="kpi-card">
-          <span>Toplam Sipariş Tutarı: </span>
-          <h3 id="kpiTotal">0 ₺</h3>
+        <div class="kpi-card"><!-- Toplam tutar kartı -->
+          <span>Toplam Sipariş Tutarı: </span><!-- Kart açıklaması -->
+          <h3 id="kpiTotal">0 ₺</h3><!-- Toplam tutar -->
         </div>
-        <div class="kpi-card">
-          <span>Ortalama Ürün Fiyatı</span>
+        <div class="kpi-card"><!-- Ortalama fiyat kartı -->
+          <span>Ortalama Ürün Fiyatı</span><!-- Kart açıklaması -->
           <h3 id="kpiAvg">0 ₺</h3>
         </div>
       </section>
-      <main class="layout">
-        <section class="panel">
+      <main class="layout"><!-- Form ve liste alanı -->
+        <section class="panel"><!-- Yeni sipariş paneli -->
           <h4>Yeni Sipariş Kaydı</h4>
-          <form id="orderForm">
+          <form id="orderForm"><!-- Sipariş formu -->
             <div class="field">
-              <label for="prodName">Ürün Adı: </label>
-              <input type="text" id="prodName" placeholder="Sehpa" required />
+              <label for="prodName">Ürün Adı: </label><!-- Ürün adı etiketi -->
+              <input type="text" id="prodName" placeholder="Sehpa" required /> <!-- Ürün adı girişi -->
             </div>
-            <div class="field">
+            <div class="field"><!-- Kategori alanı -->
               <label for="prodCat">Kategori</label>
-              <select name="prodCat" id="prodCat">
-                <option value="Mobilya">Mobilya</option>
+              <select name="prodCat" id="prodCat"><!-- Kategori seçme alanı -->
+                <option value="Mobilya">Mobilya</option> <!-- Mobilya seçeneği -->
                 <option value="Aydınlatma">Aydınlatma</option>
                 <option value="Mutfak">Mutfak</option>
               </select>
             </div>
-            <div class="field">
+            <div class="field"><!-- Fiyat alanı -->
               <label for="prodPrice">Fiyat</label>
               <input
-                type="number"
+                type="number" 
                 id="prodPrice"
                 value="3250"
                 min="100"
@@ -267,11 +267,11 @@
                 required
               />
             </div>
-            <button type="submit" class="btn-submit">Siparişi Kaydet</button>
+            <button type="submit" class="btn-submit">Siparişi Kaydet</button><!-- Form gönderme butonu -->
           </form>
         </section>
-        <section class="panel">
-          <div class="filter-bar">
+        <section class="panel"><!-- Filtre ve sipariş listesi paneli -->
+          <div class="filter-bar"><!-- Filtre alanı -->
             <input
               type="text"
               id="searchInput"
@@ -294,8 +294,8 @@
           </div>
         </section>
       </main>
-      <script> 
-        let orders = [
+      <script> <!-- JavaScript kodlarının başladığı yer -->
+        let orders = [//siparişlerin tutulduğu dizi
           { id: 1, name: "Sehpa", category: "Mobilya", price: 6500 },
           { id: 2, name: "Abajür", category: "Aydınlatma", price: 7500 },
           { id: 3, name: "Koltuk", category: "Mobilya", price: 8500 },
@@ -303,65 +303,66 @@
           { id: 5, name: "Ocak", category: "Mutfak", price: 15000 },
         ];
         //dom elementleri toplayalım
-        const orderContainer = document.getElementById("orderContainer");
-        const orderForm = document.getElementById("orderForm");
-        const searchInput = document.getElementById("searchInput");
-        const categoryFilter = document.getElementById("categoryFilter");
-        const kpiCount = document.getElementById("kpiCount");
-        const kpiTotal = document.getElementById("kpiTotal");
-        const kpiAvg = document.getElementById("kpiAvg");
-        const updateKPIs = (dataList) => {
-          kpiCount.textContent = dataList.length;
+        const orderContainer = document.getElementById("orderContainer");// Sipariş listesini alır
+        const orderForm = document.getElementById("orderForm");// Formu alır
+        const searchInput = document.getElementById("searchInput");// Arama kutusunu alır
+        const categoryFilter = document.getElementById("categoryFilter");// Kategori filtresini alır
+        const kpiCount = document.getElementById("kpiCount");// Sipariş sayısı alanını alır
+        const kpiTotal = document.getElementById("kpiTotal");// Toplam tutar alanını alır
+        const kpiAvg = document.getElementById("kpiAvg");// Ortalama fiyat alanını alır
+        const updateKPIs = (dataList) => {// KPI bilgilerini güncelleyen fonksiyon
+          kpiCount.textContent = dataList.length;// Listedeki ürün sayısını ekrana yazar
 
-          if (dataList.length === 0) {
-            kpiTotal.textContent = "0 ₺";
-            kpiAvg.textContent = "0 ₺";
+          if (dataList.length === 0) {// Liste boş mu kontrol eder
+            kpiTotal.textContent = "0 ₺";// Toplamı sıfırlar
+            kpiAvg.textContent = "0 ₺";// Ortalamayı sıfırlar
             return;
           }
-          const total = dataList.reduce((acc, curr) => acc + curr.price, 0);
-          kpiTotal.textContent = `${total.toLocaleString("tr-TR")} ₺`;
+          const total = dataList.reduce((acc, curr) => acc + curr.price, 0);// Fiyatları toplar
+          kpiTotal.textContent = `${total.toLocaleString("tr-TR")} ₺`;// Toplam tutarı Türkçe sayı formatında gösterir
 
-          const avg = total / dataList.length;
-          kpiAvg.textContent =` ${Math.round(avg).toLocaleString("tr-TR")} ₺`;
+          const avg = total / dataList.length;//Toplamı ürün sayısına bölerek ortalamayı bulur
+          kpiAvg.textContent =` ${Math.round(avg).toLocaleString("tr-TR")} ₺`;// Ortalamayı yuvarlayıp ekrana yazar
         };
 
         //filtreleme bölümü (dinamik dom/ render motoru)
-        const renderOrders = () => {
-          const term = searchInput.value.toLowerCase().trim();
-          const selectedCat = categoryFilter.value;
+        const renderOrders = () => {// Siparişleri ekrana getiren fonksiyon
+          const term = searchInput.value.toLowerCase().trim();// Arama kutusundaki değeri alır ve küçük harfe çevirir
+          const selectedCat = categoryFilter.value;// Seçilen kategoriyi alır
 
           //filtreleme bölümü
           const filtered = orders.filter((order) => {
-            const matchesName = order.name.toLowerCase().includes(term);
+            const matchesName = order.name.toLowerCase().includes(term);// Ürün adında aranan kelime var mı kontrol eder
             const mathesCategory =
-              selectedCat === "ALL" || order.category === selectedCat;
-            return matchesName && mathesCategory;
+              selectedCat === "ALL" || order.category === selectedCat;// Kategori eşleşiyor mu kontrol eder
+            return matchesName && mathesCategory; // İki şart da doğruysa ürünü döndürür
           });
 
-          orderContainer.innerHTML = "";
+          orderContainer.innerHTML = "";// Önce eski siparişleri temizler
 
-          if (filtered.length === 0) {
+          if (filtered.length === 0) {// Filtre sonucu boşsa
             orderContainer.innerHTML = `
             <div style="padding:24px; text-align:center; color:var(--muted); font-size:12px">
             Kriterlere Uygun Ürün Bulunamadı
             </div>
-            `;
-            updateKPIs([]);
+            `;// Kullanıcıya ürün bulunamadığını gösterir
+            updateKPIs([]);// KPI değerlerini sıfırlar
             return;
           }
 
           //dinamik element üretim
 
-          filtered.forEach((order) => {
-            const item = document.createElement("article");
-            item.className = "order-item";
-            item.setAttribute("data-id", order.id);
+          filtered.forEach((order) => {// Her filtrelenmiş ürün için çalışır
+            const item = document.createElement("article");// Yeni bir article elementi oluşturur
+            item.className = "order-item";// Elementin CSS sınıfını belirler
+            item.setAttribute("data-id", order.id);// Sipariş ID'sini HTML elementine ekler
             const badgeClass =
               order.category === "Mobilya"
                 ? "badge--mobilya"
                 : order.category === "Aydınlatma"
                   ? "badge--aydinlatma"
                   : "badge--seramik";
+                  // Kategoriye göre CSS sınıfı belirler
 
             item.innerHTML = `
                 <div>
@@ -374,13 +375,33 @@
                 data-action="delete">Sil</button>
                 </div>
                 `;
-            orderContainer.appendChild(item);
+            orderContainer.appendChild(item);// Oluşturulan siparişi sayfaya ekler
             updateKPIs(filtered);
           });
         };
-        searchInput.addEventListener("input", renderOrders);
-        categoryFilter.addEventListener("change", renderOrders);
-        renderOrders();
+        orderContainer.addEventListener("click", (event) => {
+          // Sipariş listesindeki tıklamaları dinler
+
+          if (event.target.dataset.action === "delete") {
+            // Tıklanan buton Sil butonu mu kontrol eder
+
+            const item = event.target.closest(".order-item");
+            // Butonun bulunduğu ürün kutusunu bulur
+
+            const id = Number(item.dataset.id);
+            // Ürünün ID'sini alır
+
+            orders = orders.filter((order) => order.id !== id);
+            // Seçilen ürünü diziden çıkarır
+
+            renderOrders();
+            // Listeyi tekrar oluşturur
+          }
+        });
+        searchInput.addEventListener("input", renderOrders);// Arama kutusuna yazıldığında renderOrders çalışır
+        categoryFilter.addEventListener("change", renderOrders);// Kategori değiştiğinde renderOrders çalışır
+        
+        renderOrders();// Sayfa açıldığında siparişleri ekrana getirir
       </script>
     </div>
   </body>
